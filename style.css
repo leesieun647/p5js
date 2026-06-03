@@ -152,3 +152,41 @@ footer {
     border-radius: 22px;
   }
 }
+
+
+
+.project-copy {
+  position: relative;
+  z-index: 2;
+  padding: 16px 4px 4px;
+}
+
+.project-copy h2 {
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  color: #222;
+}
+
+.project-copy p {
+  color: #555;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  word-break: keep-all;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.tags span {
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(34, 34, 34, 0.08);
+  color: #333;
+  font-size: 0.72rem;
+  letter-spacing: 0.01em;
+}
