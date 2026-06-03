@@ -1,20 +1,67 @@
-p5js/
-├── index.html
-├── style.css
-├── app.js
-├── sample1/
-│   ├── index.html
-│   ├── sketch.js
-│   └── style.css
-├── sample2/
-│   ├── index.html
-│   ├── sketch.js
-│   └── style.css
-├── sample3/
-│   ├── index.html
-│   ├── sketch.js
-│   └── style.css
-└── sample4/
-    ├── index.html
-    ├── sketch.js
-    └── style.css
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>p5.js Visual Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="hero">
+    <p class="eyebrow">p5.js Creative Coding Portfolio</p>
+    <h1>나의 p5.js 작품 모음</h1>
+    <p class="description">
+      과제 1부터 과제 4까지의 p5.js 작품을 한 화면에서 바로 확인할 수 있도록 구성한 웹 포트폴리오입니다.
+    </p>
+  </header>
+
+  <main class="portfolio-grid">
+    <section class="project-card">
+      <div class="card-title">
+        <span>Assignment 01</span>
+        <p>정적 작품</p>
+      </div>
+      <div class="preview">
+        <iframe src="sample1/index.html" title="과제 1 작품"></iframe>
+      </div>
+    </section>
+
+    <section class="project-card">
+      <div class="card-title">
+        <span>Assignment 04</span>
+        <p>동적 작품</p>
+      </div>
+      <div class="preview">
+        <iframe src="sample4/index.html" title="과제 4 작품"></iframe>
+      </div>
+    </section>
+
+    <section class="project-card">
+      <div class="card-title">
+        <span>Assignment 02</span>
+        <p>정적 작품</p>
+      </div>
+      <div class="preview">
+        <iframe src="sample2/index.html" title="과제 2 작품"></iframe>
+      </div>
+    </section>
+
+    <section class="project-card">
+      <div class="card-title">
+        <span>Assignment 03</span>
+        <p>동적 작품</p>
+      </div>
+      <div class="preview">
+        <iframe src="sample3/index.html" title="과제 3 작품"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>HTML · CSS · JavaScript · p5.js</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
