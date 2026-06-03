@@ -1,154 +1,20 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+function scaleIframes() {
+  const previews = document.querySelectorAll(".preview");
+
+  previews.forEach((preview) => {
+    const iframe = preview.querySelector("iframe");
+
+    const baseWidth = 600;
+    const baseHeight = 400;
+
+    const scale = Math.min(
+      preview.clientWidth / baseWidth,
+      preview.clientHeight / baseHeight
+    );
+
+    iframe.style.transform = `translate(-50%, -50%) scale(${scale})`;
+  });
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  min-height: 100vh;
-  padding: 40px 22px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #222;
-  background:
-    radial-gradient(circle at 10% 10%, rgba(255, 213, 128, 0.55), transparent 28%),
-    radial-gradient(circle at 90% 15%, rgba(126, 180, 255, 0.45), transparent 30%),
-    linear-gradient(135deg, #fff8ec 0%, #edf4ff 48%, #f7edff 100%);
-}
-
-.hero {
-  max-width: 960px;
-  margin: 0 auto 34px;
-  text-align: center;
-}
-
-.eyebrow {
-  display: inline-block;
-  margin-bottom: 12px;
-  padding: 8px 14px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.48);
-  backdrop-filter: blur(10px);
-  font-size: 0.82rem;
-  letter-spacing: 0.08em;
-  color: #5b5b5b;
-}
-
-h1 {
-  margin-bottom: 14px;
-  font-size: clamp(2rem, 5vw, 4rem);
-  line-height: 1.08;
-  letter-spacing: -0.04em;
-}
-
-.description {
-  max-width: 720px;
-  margin: 0 auto;
-  color: #555;
-  font-size: 1rem;
-  line-height: 1.7;
-}
-
-.portfolio-grid {
-  width: min(1180px, 100%);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(280px, 1fr));
-  gap: 22px;
-}
-
-.project-card {
-  position: relative;
-  padding: 14px;
-  border-radius: 26px;
-  background: rgba(255, 255, 255, 0.58);
-  border: 1px solid rgba(255, 255, 255, 0.75);
-  box-shadow: 0 22px 50px rgba(42, 50, 76, 0.12);
-  backdrop-filter: blur(18px);
-  overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 28px 70px rgba(42, 50, 76, 0.18);
-}
-
-.project-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.5), transparent 42%);
-  pointer-events: none;
-}
-
-.card-title {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.card-title span {
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-}
-
-.card-title p {
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: #222;
-  color: #fff;
-  font-size: 0.76rem;
-  white-space: nowrap;
-}
-
-.preview {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
-  border-radius: 18px;
-  background: #111;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.preview iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 600px;
-  height: 400px;
-  border: 0;
-  background: white;
-  transform-origin: center center;
-}
-
-footer {
-  margin-top: 34px;
-  text-align: center;
-  color: #666;
-  font-size: 0.86rem;
-}
-
-@media (max-width: 760px) {
-  body {
-    padding: 28px 14px;
-  }
-
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .project-card {
-    border-radius: 22px;
-  }
-}
+window.addEventListener("load", scaleIframes);
+window.addEventListener("resize", scaleIframes);
