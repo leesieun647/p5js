@@ -190,3 +190,128 @@ footer {
   font-size: 0.72rem;
   letter-spacing: 0.01em;
 }
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.28;
+  z-index: -1;
+}
+
+body::before {
+  top: 140px;
+  left: -120px;
+  background: #ffd27d;
+}
+
+body::after {
+  right: -100px;
+  bottom: 80px;
+  background: #a9c7ff;
+}
+
+.project-card {
+  isolation: isolate;
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 0;
+  height: 4px;
+  border-radius: 999px;
+  opacity: 0.9;
+}
+
+.project-card:nth-child(1)::after {
+  background: linear-gradient(90deg, #1c2f5a, #f8d66d);
+}
+
+.project-card:nth-child(2)::after {
+  background: linear-gradient(90deg, #111b3d, #ffe680);
+}
+
+.project-card:nth-child(3)::after {
+  background: linear-gradient(90deg, #ffd1dc, #9fb7ff);
+}
+
+.project-card:nth-child(4)::after {
+  background: linear-gradient(90deg, #b8d7ff, #ff9eb6);
+}
+
+.project-card:nth-child(1) .card-title p,
+.project-card:nth-child(3) .card-title p {
+  background: #333;
+}
+
+.project-card:nth-child(2) .card-title p,
+.project-card:nth-child(4) .card-title p {
+  background: linear-gradient(135deg, #222, #5b5b5b);
+}
+
+.preview {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+}
+
+.preview iframe {
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.project-card:hover .preview iframe {
+  filter: saturate(1.08) contrast(1.03);
+}
+
+.project-copy h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.project-copy h2::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #222;
+}
+
+.project-card:nth-child(1) .project-copy h2::before {
+  background: #f8d66d;
+}
+
+.project-card:nth-child(2) .project-copy h2::before {
+  background: #ffe680;
+}
+
+.project-card:nth-child(3) .project-copy h2::before {
+  background: #ff9eb6;
+}
+
+.project-card:nth-child(4) .project-copy h2::before {
+  background: #8bbcff;
+}
+
+.tags span {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(8px);
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-note {
+  font-size: 0.78rem;
+  color: #888;
+  letter-spacing: 0.04em;
+}
