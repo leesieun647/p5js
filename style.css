@@ -1,67 +1,154 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>p5.js Visual Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-<body>
-  <header class="hero">
-    <p class="eyebrow">p5.js Creative Coding Portfolio</p>
-    <h1>나의 p5.js 작품 모음</h1>
-    <p class="description">
-      과제 1부터 과제 4까지의 정적·동적 작품을 한 화면에서 바로 확인할 수 있도록 구성한 웹 포트폴리오입니다.
-    </p>
-  </header>
+html {
+  scroll-behavior: smooth;
+}
 
-  <main class="portfolio-grid" aria-label="p5.js 과제 작품 모음">
-    <section class="project-card">
-      <div class="card-title">
-        <span>Assignment 01</span>
-        <p>정적 작품</p>
-      </div>
-      <div class="preview">
-        <iframe src="sample1/index.html" title="과제 1 작품"></iframe>
-      </div>
-    </section>
+body {
+  min-height: 100vh;
+  padding: 40px 22px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(255, 213, 128, 0.55), transparent 28%),
+    radial-gradient(circle at 90% 15%, rgba(126, 180, 255, 0.45), transparent 30%),
+    linear-gradient(135deg, #fff8ec 0%, #edf4ff 48%, #f7edff 100%);
+}
 
-    <section class="project-card">
-      <div class="card-title">
-        <span>Assignment 04</span>
-        <p>동적 작품</p>
-      </div>
-      <div class="preview">
-        <iframe src="sample4/index.html" title="과제 4 작품"></iframe>
-      </div>
-    </section>
+.hero {
+  max-width: 960px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
 
-    <section class="project-card">
-      <div class="card-title">
-        <span>Assignment 02</span>
-        <p>정적 작품</p>
-      </div>
-      <div class="preview">
-        <iframe src="sample2/index.html" title="과제 2 작품"></iframe>
-      </div>
-    </section>
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 8px 14px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.48);
+  backdrop-filter: blur(10px);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: #5b5b5b;
+}
 
-    <section class="project-card">
-      <div class="card-title">
-        <span>Assignment 03</span>
-        <p>동적 작품</p>
-      </div>
-      <div class="preview">
-        <iframe src="sample3/index.html" title="과제 3 작품"></iframe>
-      </div>
-    </section>
-  </main>
+h1 {
+  margin-bottom: 14px;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
 
-  <footer>
-    <p>Designed with HTML, CSS, JavaScript and p5.js</p>
-  </footer>
+.description {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.7;
+}
 
-  <script src="app.js"></script>
-</body>
-</html>
+.portfolio-grid {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+.project-card {
+  position: relative;
+  padding: 14px;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 22px 50px rgba(42, 50, 76, 0.12);
+  backdrop-filter: blur(18px);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 70px rgba(42, 50, 76, 0.18);
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.5), transparent 42%);
+  pointer-events: none;
+}
+
+.card-title {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.card-title span {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.card-title p {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #222;
+  color: #fff;
+  font-size: 0.76rem;
+  white-space: nowrap;
+}
+
+.preview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #111;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.preview iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 400px;
+  border: 0;
+  background: white;
+  transform-origin: center center;
+}
+
+footer {
+  margin-top: 34px;
+  text-align: center;
+  color: #666;
+  font-size: 0.86rem;
+}
+
+@media (max-width: 760px) {
+  body {
+    padding: 28px 14px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    border-radius: 22px;
+  }
+}
