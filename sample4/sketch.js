@@ -2,7 +2,6 @@ let cloudX = 100;
 
 function setup() {
   createCanvas(600, 400);
-  saveGif('과제4', 10);
 }
 
 function draw() {
